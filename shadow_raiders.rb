@@ -31,7 +31,7 @@ bot.command :select do |event|
     event.send_message("指定した人数以上のキャラクターが選ばれました。\n人数を変更する場合や、ゲームをリセットするときは\nstart x y z\nと入力してください")
     break;
   end
- event.send_message("あなたのキャラクターは#{your_board[i-1]}です")
+ event.send_message("あなたのキャラクターは#{your_board[i-1]}です\nキャラクターをあと#{num-i}人選んでください。")
 end
 
 
@@ -84,13 +84,12 @@ if green.length == 0
   "20"=>"君はシャドウだね。\nだったら2ダメージ受けたまえ"
   }
 
-key = green.keys.sample
- event.respond "#{green[key]}
-
- 推理カードは残り#{green.length-1}枚です。"
- green.delete(key)
 end
-
+key = green.keys.sample
+_message = "#{green[key]}\n推理カードは残り#{green.length-1}枚です。"
+ green.delete(key)
+event.send_message(_message)
+end
 
 black = {"1"=>"「死神のスコープ」
 
@@ -304,10 +303,10 @@ if black.length == 0
 end
 
 key = black.keys.sample
- event.respond "#{black[key]}
-
+_message = "#{black[key]}\n \n
  黒のカードは残り#{black.length-1}枚です。"
  black.delete(key)
+ event.send_message(_message)
 end
 
 white = {"1"=>"「いやしの聖水」
@@ -521,10 +520,9 @@ white = {"1"=>"「いやしの聖水」
 end
 
 key = white.keys.sample
- event.respond "#{white[key]}
-
- 白のカードは残り#{white.length-1}枚です。"
+_message = "#{white[key]}\n \n白のカードは残り#{white.length-1}枚です。"
  white.delete(key)
+ event.send_message(_message)
 end
 
 bot.run
