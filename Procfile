@@ -1,0 +1,1 @@
+bot: ruby shadow_raiders.rb

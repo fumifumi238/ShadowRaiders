@@ -1,6 +1,7 @@
 {
     "extensions": {
-        "@aws.profile": "profile:default"
+        "@aws.profile": "profile:default",
+        "@git.ignoreLimitWarning": true
     },
     "language": {
         "tern_defs": {
