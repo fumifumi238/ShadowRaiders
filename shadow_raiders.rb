@@ -22,7 +22,7 @@ end
 
 bot.command :ex do |event|
   event.respond "black：黒のカードを引く\nwhite：白のカードを引く\ngreen：探偵カードを引く
-  \ndice：6面ダイスと4面ダイスを振る\nstart x y z：シャドウx枚、レイダーy枚、シチズンz枚で始める\nselect：キャラクターカードを割り当てる"
+  \ndice：6面ダイスと4面ダイスを振る\nstart x y z：シャドウx枚、レイダーy枚、シチズンz枚で始める\nselect：キャラクターカードを割り当てる\nwhat キャラクター名：キャラクターの詳細を表示する。"
 end
 
 bot.command :start do |event,shadow,raider,citizen|
