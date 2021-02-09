@@ -20,9 +20,15 @@ File.open("chara.json") do |file|
  end
 end
 
+bot.command :chara do |event|
+  event.respond"シャドウ：\n\nウラヌス\nウルリッヒ\nワルプルギス\nワイト\n復讐の女神\nアルスター\nヴァンパイア\n狼男\n蠱毒使い
+  \n\nレイダー：\n\nエミ\nエリカ\nフェリックス\nガラハド\nフレディ\nエマ\nゴドウィン\nフェリシア\nゴードン
+  \n\nシチズン：\n\nアリス\nアガサ\nデーヴィッド\nベンジャミン\nバイロン\nデボラ\nアンジェラ\nキャロル\nクレイヴ\nクレア\nブルース\nダニエル"
+end
+
 bot.command :ex do |event|
-  event.respond "black：黒のカードを引く\nwhite：白のカードを引く\ngreen：探偵カードを引く
-  \ndice：6面ダイスと4面ダイスを振る\nstart x y z：シャドウx枚、レイダーy枚、シチズンz枚で始める\nselect：キャラクターカードを割り当てる\nwhat キャラクター名：キャラクターの詳細を表示する。"
+  event.respond "black：黒のカードを引く\nwhite：白のカードを引く\ngreen：推理カードを引く\nchara:キャラクター一覧を表示する
+  \ndice：6面ダイスと4面ダイスを振る\nstart x y z：シャドウx枚、レイダーy枚、シチズンz枚で始める\nselect：キャラクターカードを割り当てる\nwhat キャラクター名：キャラクターの詳細を表示する"
 end
 
 bot.command :start do |event,shadow,raider,citizen|
