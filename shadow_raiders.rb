@@ -1,4 +1,5 @@
 require 'discordrb'
+require 'json'
 bot = Discordrb::Commands::CommandBot.new token: 'ODA2OTM2MzgxMzk3MjcwNTI4.YBwsEQ.x_ixIGM_JsdiAs-BTuPowgCyKSM' , client_id: 806936381397270528,prefix: ''
 s = ["ウラヌス","ウルリッヒ","ワルプルギス","ワイト","復讐の女神","アルスター","ヴァンパイア","狼男","蠱毒使い"]
 r = ["エミ","エリカ","フェリックス","ガラハド","フレディ","エマ","ゴドウィン","フェリシア","ゴードン"]
@@ -7,6 +8,17 @@ c = ["アリス","アガサ","デーヴィッド","ベンジャミン","バイ�
 your_board = []
 num = 0
 i = 0
+
+File.open("chara.json") do |file|
+  hash = JSON.load(file)
+ bot.command :what do |event,chara|
+  if hash[chara] == nil
+  event.respond"#{chara}というキャラクターは存在しません"
+  else
+  event.respond"#{hash[chara]}"
+  end
+ end
+end
 
 bot.command :ex do |event|
   event.respond "black：黒のカードを引く\nwhite：白のカードを引く\ngreen：探偵カードを引く
@@ -21,7 +33,7 @@ bot.command :start do |event,shadow,raider,citizen|
   num = shadow+raider+citizen
   array = s.sample(shadow)+r.sample(raider)+c.sample(citizen)
   your_board = array.shuffle.freeze
-  event.respond "シャドウ:　#{shadow}人\nレイダー:　#{raider}人\nシチズン:  #{citizen}人\nで始めて良いですか？\nbotへのDMで「select」と入力すると、キャラクターが選ばれます。
+  event.respond "シャドウ:　#{shadow}人\nレイダー:　#{raider}人\nシチズン:　#{citizen}人\nで始めて良いですか？\nbotへのDMで「select」と入力すると、キャラクターが選ばれます。
   人数の変更やゲームをもう一度やり直したい場合は「start x y z」してください"
 end
 
@@ -31,7 +43,7 @@ bot.command :select do |event|
     event.send_message("指定した人数以上のキャラクターが選ばれました。\n人数を変更する場合や、ゲームをリセットするときは\nstart x y z\nと入力してください")
     break;
   end
- event.send_message("あなたのキャラクターは#{your_board[i-1]}です\nキャラクターをあと#{num-i}人選んでください。")
+ event.send_message("あなたのキャラクターは#{your_board[i-1]}です。\n詳細を知りたい場合は\nwhat #{your_board[i-1]}\nと入力してください。\nキャラクターをあと#{num-i}人選んでください。")
 end
 
 
