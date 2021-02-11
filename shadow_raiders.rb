@@ -27,12 +27,12 @@ bot.command :chara do |event|
 end
 
 bot.command :ex do |event|
-  event.respond "black：黒のカードを引く\nwhite：白のカードを引く\ngreen：推理カードを引く\nchara:キャラクター一覧を表示する
-  \ndice：6面ダイスと4面ダイスを振る\nstart x y z：シャドウx枚、レイダーy枚、シチズンz枚で始める\nselect：キャラクターカードを割り当てる\nwhat キャラクター名：キャラクターの詳細を表示する"
+  event.respond "b：黒のカードを引く\nw：白のカードを引く\ng：推理カードを引く\nchara:キャラクター一覧を表示する
+  \nd：6面ダイスと4面ダイスを振る\nstart x y z：シャドウx枚、レイダーy枚、シチズンz枚で始める\nselect：キャラクターカードを割り当てる\nwhat キャラクター名：キャラクターの詳細を表示する"
 end
 
 
-bot.command :dice do |event|
+bot.command :d do |event|
   event.respond "6面ダイス:　#{rand(1..6)}\n4面ダイス:　#{rand(1..4)}"
 end
 
@@ -57,7 +57,7 @@ green = {"1"=>"君はシチズンかシャドウだね。\nだったら君の装
 "19"=>"君はシャドウだね。\nだったら『女王の陛下の飛行船』に乗りたまえ。\n（今いる場合は1ダメージ受けたまえ。）",
 "20"=>"君はシャドウだね。\nだったら2ダメージ受けたまえ"}
 
-bot.command :green do |event|
+bot.command :g do |event|
 if green.length == 0
   green = {"1"=>"君はシチズンかシャドウだね。\nだったら君の装備1つを手番プレイヤーに渡すか、1ダメージ受けたまえ。",
   "2"=>"君はシチズンかシャドウだね。\nだったら君の装備1つを手番プレイヤーに渡すか、1ダメージ受けたまえ。",
@@ -192,7 +192,7 @@ black = {"1"=>"「死神のスコープ」
 他のプレイヤー1人を選び6面ダイスを振る。出目が1~4の場合は選ばれたプレイヤーが、5~6の場合はあなたが3ダメージを受ける。"
 }
 
-bot.command :black do |event|
+bot.command :b do |event|
 if black.length == 0
   black = {"1"=>"「死神のスコープ」
 
@@ -409,7 +409,7 @@ white = {"1"=>"「いやしの聖水」
 
 あなたがアリス/アンジェラ/アガサ/ウルリッヒ/ウラヌス/アルスター/のとき、正体を公開してもよい。公開した場合、あなたは全てのダメージを回復する。"
 }
-bot.command :white do |event|
+bot.command :w do |event|
 if white.length == 0
 white = {"1"=>"「いやしの聖水」
 
