@@ -776,7 +776,7 @@ bot.command :select do |event|
     event.send_message("指定した人数以上のキャラクターが選ばれました。\n人数を変更する場合や、ゲームをリセットするときは\nstart x y z\nと入力してください")
     break;
   end
- event.send_message("あなたのキャラクターは#{your_board[i-1]}です。\n詳細を知りたい場合は\nwhat #{your_board[i-1]}\nと入力してください。\nキャラクターをあと#{num-i}人選んでください。")
+ event.send_message("あなたのキャラクターは#{your_board[i-1]}です。\n詳細を知りたい場合は\nwhat #{your_board[i-1]}\nと入力してください。\nあなたの順番は#{i}番目です。\n\nキャラクターをあと#{num-i}人選んでください。")
 end
 
 bot.run
