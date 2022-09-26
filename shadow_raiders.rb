@@ -5,10 +5,10 @@ require 'dotenv'
 
 Dotenv.load
 
-NEW_TOKEN = ENV["NEW_TOKEN"]
+TOKEN = ENV["TOKEN"]
 CLIENT_ID = ENV["CLIENT_ID"]
 
-bot = Discordrb::Commands::CommandBot.new token: 'ODA2OTM2MzgxMzk3MjcwNTI4.YBwsEQ.x_ixIGM_JsdiAs-BTuPowgCyKSM' , client_id: 806936381397270528,prefix: ''
+bot = Discordrb::Commands::CommandBot.new token: TOKEN , client_id: CLIENT_ID,prefix: ''
 s = ["ウラヌス","ウルリッヒ","ワルプルギス","ワイト","復讐の女神","アルスター","ヴァンパイア","狼男","ベノム"]
 r = ["エミ","エリカ","フェリックス","ガラハド","フレディ","エマ","ゴドウィン","フェリシア","ゴードン"]
 c = ["アリス","アガサ","デーヴィッド","ベンジャミン","バイロン","デボラ","アンジェラ","キャロル","クレイグ","クレア","ブルース","ダニエル"]
