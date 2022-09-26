@@ -1,5 +1,13 @@
+require "bundler/setup"
 require 'discordrb'
 require 'json'
+require 'dotenv'
+
+Dotenv.load
+
+NEW_TOKEN = ENV["NEW_TOKEN"]
+CLIENT_ID = ENV["CLIENT_ID"]
+
 bot = Discordrb::Commands::CommandBot.new token: 'ODA2OTM2MzgxMzk3MjcwNTI4.YBwsEQ.x_ixIGM_JsdiAs-BTuPowgCyKSM' , client_id: 806936381397270528,prefix: ''
 s = ["ウラヌス","ウルリッヒ","ワルプルギス","ワイト","復讐の女神","アルスター","ヴァンパイア","狼男","ベノム"]
 r = ["エミ","エリカ","フェリックス","ガラハド","フレディ","エマ","ゴドウィン","フェリシア","ゴードン"]
@@ -658,7 +666,7 @@ bot.command :start do |event,shadow,raider,citizen|
 
 他のプレイヤー1人を選び6面ダイスを振る。出目が1~4の場合は選ばれたプレイヤーが、5~6の場合はあなたが3ダメージを受ける。"
 }
-  
+
 
 white = {"1"=>"「いやしの聖水」
 
@@ -762,7 +770,7 @@ white = {"1"=>"「いやしの聖水」
 【使い捨て】　
 
 あなたがアリス/アンジェラ/アガサ/ウルリッヒ/ウラヌス/アルスター/のとき、正体を公開してもよい。公開した場合、あなたは全てのダメージを回復する。"
-}  
+}
   num = shadow+raider+citizen
   array = s.sample(shadow)+r.sample(raider)+c.sample(citizen)
   your_board = array.shuffle.freeze
