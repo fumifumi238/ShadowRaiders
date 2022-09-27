@@ -51,6 +51,16 @@ bot.command :d do |event|
   event.respond "6面ダイス:　#{rand(1..6)}\n4面ダイス:　#{rand(1..4)}"
 end
 
+def set_cards(color)
+  File.open("#{color}.json") do |file|
+  cards = JSON.load(file)
+  puts cards
+  cards
+  end
+end
+
+set_cards("green")
+
 green = {"1"=>"君はシチズンかシャドウだね。\nだったら君の装備1つを手番プレイヤーに渡すか、1ダメージ受けたまえ。",
 "2"=>"君はシチズンかシャドウだね。\nだったら君の装備1つを手番プレイヤーに渡すか、1ダメージ受けたまえ。",
 "3"=>"君はシチズンかレイダーだね。\nだったら君の装備1つを手番プレイヤーに渡すか、1ダメージ受けたまえ。",
